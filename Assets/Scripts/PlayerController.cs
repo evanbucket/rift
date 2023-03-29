@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // +1 for right/up, -1 for left/down.
         // Example: Vector2(1, -1) = diagonal direction right and down.
@@ -52,12 +52,10 @@ public class PlayerController : MonoBehaviour
             Input.GetAxisRaw("Vertical")
         ).normalized;
 
-        // Take the previous position and add any change to it
-        // in the x and y directions.
-        rb.AddForce(new Vector2(
-            speed * direction.x / SPEED_UNIT,
-            speed * direction.y / SPEED_UNIT
-        ).normalized);
+        transform.position = new Vector2(
+            transform.position.x + speed * direction.x / SPEED_UNIT,
+            transform.position.y + speed * direction.y / SPEED_UNIT
+        );
 
         // If current state is moving, the player is moving and is doing walking animation
         if (currentState == PlayerState.Moving) {
