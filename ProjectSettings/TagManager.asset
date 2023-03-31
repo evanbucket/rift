@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Door
+  - Dungeon1
   layers:
   - Default
   - TransparentFX
@@ -42,4 +43,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 2683016757
+    locked: 0
+  - name: Pillar
+    uniqueID: 1350550585
     locked: 0

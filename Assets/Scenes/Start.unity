@@ -1235,6 +1235,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 364878090926352663, guid: b76e9528f0f6b7240bee76ede4fefab6, type: 3}
+      propertyPath: m_TagString
+      value: Dungeon1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b76e9528f0f6b7240bee76ede4fefab6, type: 3}
 --- !u!1001 &2491683153908455448
