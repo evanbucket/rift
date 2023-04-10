@@ -7,6 +7,9 @@ TagManager:
   - Ground
   - Door
   - Dungeon1
+  - Start
+  - Dungeon2
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -43,6 +46,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Text
+    uniqueID: 4294742389
     locked: 0
   - name: Player
     uniqueID: 2683016757

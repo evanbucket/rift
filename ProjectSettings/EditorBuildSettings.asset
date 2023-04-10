@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Dungeon1.unity
     guid: b540b6323e780ea4b84fb2dd509369c3
   - enabled: 1
+    path: Assets/Scenes/Dungeon2.unity
+    guid: ca1eccdb5db5814418ba15ab89e56c7d
+  - enabled: 1
     path: Assets/Scenes/debugroom.unity
     guid: e47d8d4a0ef16c04bb2ef31512a5b93d
   m_configObjects: {}
