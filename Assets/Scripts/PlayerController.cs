@@ -8,12 +8,13 @@ public class PlayerController : MonoBehaviour
     enum PlayerState {
         Idle,
         Moving,
+        Attacking,
     }
 
     private PlayerState currentState = PlayerState.Idle;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
-    /* private Animator animator; */
+    private Animator animator;
     private const int SPEED_UNIT = 1000;
     public float speed;
 
@@ -22,7 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        /* animator = GetComponent<Animator>(); */
+        animator = GetComponent<Animator>();
         currentState = PlayerState.Idle;
     }
 
@@ -42,7 +43,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         // +1 for right/up, -1 for left/down.
@@ -60,11 +60,11 @@ public class PlayerController : MonoBehaviour
         // If current state is moving, the player is moving and is doing walking animation
         if (currentState == PlayerState.Moving) {
             MoveState(direction);
-            /* animator.SetBool("Moving", true); */
+            animator.SetBool("isMoving", true);
         // If current state is idle, the player is idle, and is not doing the walking animation
         } else if (currentState == PlayerState.Idle) {
             IdleState(direction);
-            /* animator.SetBool("Moving", false); */
+            animator.SetBool("isMoving", false);
         }
         
         // Flip sprite
