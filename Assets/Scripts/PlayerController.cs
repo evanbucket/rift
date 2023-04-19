@@ -50,10 +50,20 @@ public class PlayerController : MonoBehaviour
 
     void AttackState()
     {
+        // temp!!! fix please, starts 2 animations and gets stuck?
+        if (!animator.GetBool("isAttacking")) {
             currentState = PlayerState.Attacking;
-            sr. color = Color.yellow;
+            sr.color = Color.yellow;
             Debug.Log("ATTACK!");
+        }
     }
+
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            // currentState = PlayerState.Attacking;
+             AttackState();
+        }
+    }   
 
     void FixedUpdate()
     {
@@ -69,9 +79,7 @@ public class PlayerController : MonoBehaviour
             transform.position.y + speed * direction.y / SPEED_UNIT
         );
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            currentState = PlayerState.Attacking;
-        }
+        
 
         // If current state is moving, the player is moving and is doing walking animation
         if (currentState == PlayerState.Moving) {
@@ -84,6 +92,7 @@ public class PlayerController : MonoBehaviour
         // If the current state is attacking, the player is attacking and doing the attack animation
         } else if (currentState == PlayerState.Attacking) {
             AttackState();
+            animator.SetBool("isMoving", false);
             animator.SetBool("isAttacking", true);
         }
         
@@ -109,7 +118,7 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetBool("isAttacking", false);
         Debug.Log("Tired.....");
-        currentState = PlayerState.Idle;
+        currentState = PlayerState.Moving;
     }
 
     private void OnDrawGizmos()
@@ -117,7 +126,7 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.transform.position, radius);
     }
     // need to lock movement during attack!
-    // need to make attack smaller, as well as change the attack animation!!
+    // change the attack animation!!
     // 8 class periods left 4/17
     // pixels per unit make thing smaller
 }
