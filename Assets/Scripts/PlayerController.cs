@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public GameObject attackPoint;
     public float radius;
     public LayerMask enemies;
+    public float damage;
 
     // Start is called before the first frame update
     void Start()
@@ -55,7 +56,7 @@ public class PlayerController : MonoBehaviour
             currentState = PlayerState.Attacking;
             sr.color = Color.yellow;
             Debug.Log("ATTACK!");
-        }
+        } 
     }
 
     void Update() {
@@ -98,19 +99,19 @@ public class PlayerController : MonoBehaviour
         
         // Flip sprite
         if (direction.x < 0) {
-            sr.flipX = true;
+            this.transform.localScale = new Vector3(-0.529f, 0.427639f, 1);
         } else if (direction.x > 0) {
-            sr.flipX = false;
+            this.transform.localScale = new Vector3(0.529f, 0.427639f, 1);
         }  
     }
 
-    // change to attackTime if it describes this better?
     public void attack()
     {
         Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint.transform.position, radius, enemies);
         
         foreach (Collider2D enemyGameobject in enemy) {
             Debug.Log("Hit enemy!");
+            enemyGameobject.GetComponent<EnemyHealth>().health -= damage;
         }
     }
 
@@ -127,6 +128,8 @@ public class PlayerController : MonoBehaviour
     }
     // need to lock movement during attack!
     // change the attack animation!!
-    // 8 class periods left 4/17
+    // Need to figure out how to flip the attack point. flipX only flips the sprite, nto the whole gameobject
+        // negative transform.scale?
+    // 7 class periods left 4/17
     // pixels per unit make thing smaller
 }

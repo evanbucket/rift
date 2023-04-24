@@ -288,7 +288,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 237433546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.39, y: -0.11, z: 0}
+  m_LocalPosition: {x: 1.05, y: -0.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -359,8 +359,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 319337228, guid: 0837b1829fc3a0c498554f73f69261db, type: 3}
     - target: {fileID: 3951622827199334380, guid: d48d002e9650e1e40943e0de7d815956, type: 3}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3951622827199334380, guid: d48d002e9650e1e40943e0de7d815956, type: 3}
       propertyPath: radius
-      value: 0.5
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 3951622827199334380, guid: d48d002e9650e1e40943e0de7d815956, type: 3}
       propertyPath: attackPoint
@@ -1014,6 +1018,7 @@ GameObject:
   - component: {fileID: 1514957719}
   - component: {fileID: 1514957718}
   - component: {fileID: 1514957717}
+  - component: {fileID: 1514957720}
   m_Layer: 6
   m_Name: tempenemy
   m_TagString: Untagged
@@ -1114,6 +1119,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1514957720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514957716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f6d309c8d166fc4291a8b36ab753602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
 --- !u!1 &1550627069
 GameObject:
   m_ObjectHideFlags: 0
