@@ -14,7 +14,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Everything else
   - Water
   - UI
   - Enemy
@@ -47,12 +47,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Text
-    uniqueID: 4294742389
-    locked: 0
   - name: Player
     uniqueID: 2683016757
     locked: 0
   - name: Pillar
     uniqueID: 1350550585
+    locked: 0
+  - name: Text
+    uniqueID: 4294742389
     locked: 0
