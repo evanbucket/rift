@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     public float radius;
     public LayerMask enemies;
     public float damage;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -52,17 +52,13 @@ public class PlayerController : MonoBehaviour
     void AttackState()
     {
         // temp!!! fix please, starts 2 animations and gets stuck?
-        if (!animator.GetBool("isAttacking")) {
-            currentState = PlayerState.Attacking;
-            sr.color = Color.yellow;
-            Debug.Log("ATTACK!");
-        } 
+        sr.color = Color.yellow;
+        Debug.Log("ATTACK!");
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            // currentState = PlayerState.Attacking;
-             AttackState();
+        if (Input.GetKeyDown(KeyCode.Space) && currentState != PlayerState.Attacking) {
+            currentState = PlayerState.Attacking;
         }
     }   
 
@@ -86,10 +82,12 @@ public class PlayerController : MonoBehaviour
         if (currentState == PlayerState.Moving) {
             MoveState(direction);
             animator.SetBool("isMoving", true);
+            animator.SetBool("isAttacking", false);
         // If current state is idle, the player is idle, and is not doing the walking animation
         } else if (currentState == PlayerState.Idle) {
             IdleState(direction);
             animator.SetBool("isMoving", false);
+            animator.SetBool("isAttacking", false);
         // If the current state is attacking, the player is attacking and doing the attack animation
         } else if (currentState == PlayerState.Attacking) {
             AttackState();
@@ -118,7 +116,7 @@ public class PlayerController : MonoBehaviour
     public void endAttack()
     {
         animator.SetBool("isAttacking", false);
-        Debug.Log("Tired.....");
+        Debug.Log("Tired...");
         currentState = PlayerState.Moving;
     }
 
@@ -128,8 +126,6 @@ public class PlayerController : MonoBehaviour
     }
     // need to lock movement during attack!
     // change the attack animation!!
-    // Need to figure out how to flip the attack point. flipX only flips the sprite, nto the whole gameobject
-        // negative transform.scale?
-    // 7 class periods left 4/17
+    // 6 class periods left 4/17
     // pixels per unit make thing smaller
 }
