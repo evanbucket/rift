@@ -9,5 +9,12 @@ public class Score : MonoBehaviour
     void Start()
     {
         // if its the zeroth scene (buildIndex == 0)
+        if (SceneManager.GetActiveScene().buildIndex == 0) {
+            // reset the score
+            PlayerPrefs.SetInt("score", 0);
+        }
+        GetComponent<UnityEngine.UI.Text>().text = PlayerPrefs.GetInt("score").ToString();
+
+        // TODO: functionality to reset the score whenever you reach a new floor.
     }
 }

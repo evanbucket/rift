@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Shard : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class Shard : MonoBehaviour
             // Save the current score to be used across multiple scenes
             PlayerPrefs.SetInt("score", newScore);
             // Display the newScore in the UI
-            score.text = newScore.ToString();
+            score.text = newScore.ToString("D2");
             // Make shard disappear
             Destroy(gameObject);
         }
