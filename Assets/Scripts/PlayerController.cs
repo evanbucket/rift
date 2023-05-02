@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
         if (direction != new Vector2(0,0)){
             currentState = PlayerState.Moving;
             sr.color = Color.green;
-            Debug.Log("Time to go!");
+            //Debug.Log("Time to go!");
         }
     }
 
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
         if (direction == new Vector2(0,0)){
             currentState = PlayerState.Idle;
             sr.color = Color.red;
-            Debug.Log("I'm idle!");
+            //Debug.Log("I'm idle!");
         }
     }
 
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         // temp!!! fix please, starts 2 animations and gets stuck?
         sr.color = Color.yellow;
-        Debug.Log("ATTACK!");
+        //Debug.Log("ATTACK!");
     }
 
     void Update() {
@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
         Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint.transform.position, radius, enemies);
         
         foreach (Collider2D enemyGameobject in enemy) {
-            Debug.Log("Hit enemy!");
+            //Debug.Log("Hit enemy!");
             enemyGameobject.GetComponent<EnemyHealth>().health -= damage;
         }
     }
@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
     public void endAttack()
     {
         animator.SetBool("isAttacking", false);
-        Debug.Log("Tired...");
+        //Debug.Log("Tired...");
         currentState = PlayerState.Moving;
     }
 

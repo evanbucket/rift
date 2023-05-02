@@ -10,15 +10,19 @@ public class Door : MonoBehaviour
     private SpriteRenderer sr;
     public void Start()
     {
+        requiredScore.text = ScoresByScene.requiredScoreByScene[SceneManager.GetActiveScene().name].ToString("D2");
+        PlayerPrefs.SetInt("score", 0);
         sr = GetComponent<SpriteRenderer>();
-        requiredScore.text = ScoresByScene.requiredScoreByScene["Dungeon1"].ToString("D2");
+        sr.color = Color.grey;
     }
 
     public void Update()
     {
         int score = PlayerPrefs.GetInt("score");
-        if (score < ScoresByScene.requiredScoreByScene[this.tag]) {
+        if (score < ScoresByScene.requiredScoreByScene[SceneManager.GetActiveScene().name]) {
             sr.color = Color.grey;
+        } else if(score >= ScoresByScene.requiredScoreByScene[SceneManager.GetActiveScene().name]) {
+            sr.color = Color.blue;
         }
     }
     private void OnCollisionEnter2D(Collision2D other)
@@ -27,12 +31,9 @@ public class Door : MonoBehaviour
         int score = PlayerPrefs.GetInt("score");
         // If the player has collided with the door, loads a scene based on what tag the door has. 
         if (other.gameObject.tag == "Player") {
-            if (this.tag == "Start") {
-                SceneManager.LoadScene("Start", LoadSceneMode.Single);
-            } else if (this.tag == "Dungeon1" && score >= ScoresByScene.requiredScoreByScene[this.tag]) {
-                SceneManager.LoadScene("Dungeon1", LoadSceneMode.Single);
+            if (score >= ScoresByScene.requiredScoreByScene[SceneManager.GetActiveScene().name]) {
+                SceneManager.LoadScene(this.tag, LoadSceneMode.Single);
                 Debug.Log("I can go through the Dungeon1 door!");
-                requiredScore.text = ScoresByScene.requiredScoreByScene["Dungeon2"].ToString("D2");
                 // set score to 0
                 //  PlayerPrefs.SetInt("score", 0);
             } /* else if (this.tag == Dungeon [PUT A SYSTEM TO FILL IN THE NUMBER AUTOMATICALLY HERE]) */
@@ -45,6 +46,7 @@ public static class ScoresByScene
     public static Dictionary<string, int> requiredScoreByScene = new Dictionary<string, int> {
         // any door of scene "debugroom" has a requirement of a score of 2
         ["Start"] = 0,
+        ["debugroom"] = 0,
         ["Dungeon1"] = 2,
         ["Dungeon2"] = 4,
     };
