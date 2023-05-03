@@ -124,6 +124,16 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.DrawWireSphere(attackPoint.transform.position, radius);
     }
+    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy") {
+            // Respawn
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Debug.Log("Reload the scene");
+        }
+    }
+
     // need to lock movement during attack!
     // change the attack animation!!
     // 6 class periods left 4/17
