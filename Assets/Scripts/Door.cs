@@ -8,6 +8,7 @@ public class Door : MonoBehaviour
 {    
     public Text requiredScore;
     private SpriteRenderer sr;
+
     public void Start()
     {
         requiredScore.text = ScoresByScene.requiredScoreByScene[SceneManager.GetActiveScene().name].ToString("D2");
