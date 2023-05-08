@@ -10,6 +10,7 @@ TagManager:
   - Start
   - Dungeon2
   - Enemy
+  - Dungeon3
   layers:
   - Default
   - TransparentFX

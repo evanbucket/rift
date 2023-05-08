@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class Door : MonoBehaviour
 {    
     public Text requiredScore;
+    // Implement hints later, triggers a hint on the gui that says "You need more dimensional shards..." when you touch the door without enough of them
+    public Text hint;
     private SpriteRenderer sr;
 
     public void Start()
@@ -23,7 +25,7 @@ public class Door : MonoBehaviour
         if (score < ScoresByScene.requiredScoreByScene[SceneManager.GetActiveScene().name]) {
             sr.color = Color.grey;
         } else if(score >= ScoresByScene.requiredScoreByScene[SceneManager.GetActiveScene().name]) {
-            sr.color = Color.blue;
+            sr.color = new Color(0.572f, 0.901f, 1.0f);
         }
     }
     private void OnCollisionEnter2D(Collision2D other)

@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/debugroom.unity
-    guid: e47d8d4a0ef16c04bb2ef31512a5b93d
-  - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -17,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dungeon2.unity
     guid: ca1eccdb5db5814418ba15ab89e56c7d
+  - enabled: 1
+    path: Assets/Scenes/Dungeon3.unity
+    guid: cee1c5dac9e92cb4ca1254893f608b35
+  - enabled: 1
+    path: Assets/Scenes/debugroom.unity
+    guid: e47d8d4a0ef16c04bb2ef31512a5b93d
   m_configObjects: {}
