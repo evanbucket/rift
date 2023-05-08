@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     {
         if (direction != new Vector2(0,0)){
             currentState = PlayerState.Moving;
-            sr.color = Color.green;
+            // sr.color = Color.green;
             //Debug.Log("Time to go!");
         }
     }
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
     {
         if (direction == new Vector2(0,0)){
             currentState = PlayerState.Idle;
-            sr.color = Color.red;
+            // sr.color = Color.red;
             //Debug.Log("I'm idle!");
         }
     }
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
     void AttackState()
     {
         // temp!!! fix please, starts 2 animations and gets stuck?
-        sr.color = Color.yellow;
+        // sr.color = Color.yellow;
         //Debug.Log("ATTACK!");
     }
 
