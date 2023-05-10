@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a977dc281849d48b2ec9e64d6e8381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 140
+  speed: 150
   attackPoint: {fileID: 6941855637758665676}
   radius: 0.45
   enemies:
@@ -226,7 +226,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
