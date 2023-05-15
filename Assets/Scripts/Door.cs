@@ -36,21 +36,19 @@ public class Door : MonoBehaviour
         if (other.gameObject.tag == "Player") {
             if (score >= ScoresByScene.requiredScoreByScene[SceneManager.GetActiveScene().name]) {
                 SceneManager.LoadScene(this.tag, LoadSceneMode.Single);
-                Debug.Log("I can go through the Dungeon1 door!");
-                // set score to 0
-                //  PlayerPrefs.SetInt("score", 0);
-            } /* else if (this.tag == Dungeon [PUT A SYSTEM TO FILL IN THE NUMBER AUTOMATICALLY HERE]) */
+                /* Debug.Log("I can go through the Dungeon1 door!"); */
+            }
         }
     }
-}
-
-public static class ScoresByScene
-{
-    public static Dictionary<string, int> requiredScoreByScene = new Dictionary<string, int> {
-        // any door of scene "debugroom" has a requirement of a score of 2
-        ["Start"] = 0,
-        ["debugroom"] = 0,
-        ["Dungeon1"] = 2,
-        ["Dungeon2"] = 4,
-    };
+    public static class ScoresByScene
+    {
+        public static Dictionary<string, int> requiredScoreByScene = new Dictionary<string, int> {
+            // any door of scene "debugroom" has a requirement of a score of 2
+            ["Start"] = 0,
+            ["debugroom"] = 0,
+            ["Dungeon1"] = 2,
+            ["Dungeon2"] = 4,
+            ["Dungeon3"] = 6,
+        };
+    }
 }

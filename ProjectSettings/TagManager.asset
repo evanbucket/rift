@@ -11,6 +11,7 @@ TagManager:
   - Dungeon2
   - Enemy
   - Dungeon3
+  - End
   layers:
   - Default
   - TransparentFX
