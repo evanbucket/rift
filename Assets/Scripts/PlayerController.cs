@@ -51,17 +51,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void AttackState()
+    /* void AttackState()
     {
         // temp!!! fix please, starts 2 animations and gets stuck?
         // sr.color = Color.yellow;
         //Debug.Log("ATTACK!");
-    }
+    } */
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Space) && currentState != PlayerState.Attacking) {
+        /* if (Input.GetKeyDown(KeyCode.Space) && currentState != PlayerState.Attacking) {
             currentState = PlayerState.Attacking;
-        }
+        } */
     }   
 
     void FixedUpdate()
@@ -84,18 +84,18 @@ public class PlayerController : MonoBehaviour
         if (currentState == PlayerState.Moving) {
             MoveState(direction);
             animator.SetBool("isMoving", true);
-            animator.SetBool("isAttacking", false);
+            /* animator.SetBool("isAttacking", false); */
         // If current state is idle, the player is idle, and is not doing the walking animation
         } else if (currentState == PlayerState.Idle) {
             IdleState(direction);
             animator.SetBool("isMoving", false);
-            animator.SetBool("isAttacking", false);
+            /* animator.SetBool("isAttacking", false); */
         // If the current state is attacking, the player is attacking and doing the attack animation
-        } else if (currentState == PlayerState.Attacking) {
+        }/*  else if (currentState == PlayerState.Attacking) {
             AttackState();
             animator.SetBool("isMoving", false);
             animator.SetBool("isAttacking", true);
-        }
+        } */
         
         // Flip sprite
         if (direction.x < 0) {
@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
         }  
     }
 
-    public void attack()
+    /* public void attack()
     {
         Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint.transform.position, radius, enemies);
         
@@ -113,19 +113,19 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("Hit enemy!");
             enemyGameobject.GetComponent<EnemyHealth>().health -= damage;
         }
-    }
+    } */
 
-    public void endAttack()
+    /* public void endAttack()
     {
         animator.SetBool("isAttacking", false);
         //Debug.Log("Tired...");
         currentState = PlayerState.Moving;
-    }
+    } */
 
-    private void OnDrawGizmos()
+    /* private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(attackPoint.transform.position, radius);
-    }
+    } */
     
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -136,9 +136,4 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Reload the scene");
         }
     }
-
-    // need to lock movement during attack!
-    // change the attack animation!!
-    // 6 class periods left 4/17
-    // pixels per unit make thing smaller
 }
