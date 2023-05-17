@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Animator animator;
+    private Vector2 startLocation;
     private const int SPEED_UNIT = 1000;
     public float speed;
     public GameObject attackPoint;
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         currentState = PlayerState.Idle;
+        startLocation = transform.position;
     }
 
     void IdleState(Vector2 direction)
@@ -129,7 +131,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy") {
             // Respawn
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            transform.position = startLocation;
             Debug.Log("Reload the scene");
         }
     }
